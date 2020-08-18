@@ -14,7 +14,7 @@ pipeline {
             sh 'snowsql --help'
         }
     }
-    stage('Deploy changes') {
+    /**stage('Deploy changes') {
       steps {
         withCredentials(bindings: [usernamePassword(credentialsId: 'snowflake_creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           sh '''
@@ -22,7 +22,7 @@ pipeline {
               '''           
         }
       }
-    }
+    }**/
     stage('Verify changes') {
       steps {
         withCredentials(bindings: [usernamePassword(credentialsId: 'snowflake_creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
